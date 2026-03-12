@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // Map to store vote status. key: post.id, value: 'up' or 'down'
   final Map<int, String> _voteStatus = {};
 
   void _handleUpvote(int postId) {
@@ -29,10 +28,9 @@ class _HomePageState extends State<HomePage> {
   void _handleDownvote(int postId) {
     setState(() {
       if (_voteStatus[postId] == 'down') {
-        _voteStatus.remove(postId); // Undo downvote
+        _voteStatus.remove(postId);
       } else {
-        _voteStatus[postId] =
-            'down'; // Set to downvote (will replace upvote if exists)
+        _voteStatus[postId] = 'down';
       }
     });
   }
@@ -41,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome, ${widget.username}!'),
+        title: Text('Halo, ${widget.username}!'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
